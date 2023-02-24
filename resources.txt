@@ -1,0 +1,13 @@
+Cloned Code From:
+    https://github.com/techwithtim/Flask-Web-App-Tutorial
+How To Calculate Handicaps:
+    https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/6%201%20Course%20Handicap%20Calculation.htm
+USGA Handicap Calculator:
+    https://www.usga.org/course-handicap-calculator.html
+Course Handicap Lookup:
+    https://ncrdb.usga.org/
+How to reset password:
+    https://www.youtube.com/watch?v=zYWpEJAHvaI
+    https://medium.com/@stevenrmonaghan/password-reset-with-flask-mail-protocol-ddcdfc190968
+    https://stackoverflow.com/questions/23039734/flask-login-password-reset
+    https://www.youtube.com/watch?v=vutyTx7IaAI

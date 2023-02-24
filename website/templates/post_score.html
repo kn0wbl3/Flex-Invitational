@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block title %}Post a Score{% endblock %} {% block content
+    %}
+    <form method="POST">
+      <h3 align="center">Post a Score</h3>
+      <div class="form-group">
+        <label for="course">Course</label>
+        <input
+          type="test"
+          class="form-control"
+          id="course"
+          name="course"
+          placeholder="Enter Course Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tees">Tees</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tees"
+          name="tees"
+          placeholder="Which color tees did you play?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="front_or_back">Front/Back</label>
+        <select name="front_or_back" id="front_or_back" class="form-control">
+          <option value="front">Front</option>
+          <option value="back">Back</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="slope">Slope Rating (9-hole)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="slope"
+          name="slope"
+          placeholder="What is the slope rating?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="course_rating">Course Rating (9-hole)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="course_rating"
+          name="course_rating"
+          placeholder="What is the course rating?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          name="date"
+          placeholder="When did you play?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="score">Score</label>
+        <input
+          type="number"
+          class="form-control"
+          id="score"
+          name="score"
+          placeholder="What did you shoot?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="attestor">Attestor</label>
+        <input
+          type="text"
+          class="form-control"
+          id="attestor"
+          name="attestor"
+          placeholder="Who attested this score?"
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% endblock %}
+    

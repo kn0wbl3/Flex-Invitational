@@ -64,3 +64,16 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
+
+
+@auth.route('/reset_password')
+def reset_password():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user = User.query.filter_by(email=email).first()
+        # if user:
+        #     # send email to user with token
+        #     # 
+        # else:
+        #     flash('Email does not exist.', category='error')
+    return render_template('reset_password.html', user=current_user)
