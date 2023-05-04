@@ -11,3 +11,6 @@ How to reset password:
     https://medium.com/@stevenrmonaghan/password-reset-with-flask-mail-protocol-ddcdfc190968
     https://stackoverflow.com/questions/23039734/flask-login-password-reset
     https://www.youtube.com/watch?v=vutyTx7IaAI
+Login Info
+    andrew@gmail.com
+    12345678
