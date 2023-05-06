@@ -1,8 +1,7 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note, Round
-from . import db
-from . import validator
+from . import db, validator
 import json
 
 views = Blueprint('views', __name__)

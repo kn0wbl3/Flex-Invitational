@@ -1,7 +1,8 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
-
+from itsdangerous import TimedSerializer
+from flask import current_app
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,6 +18,19 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
     rounds = db.relationship('Round')
+
+    def generate_token(self):
+        serial = TimedSerializer(current_app.config["SECRET_KEY"])
+        return serial.dumps({"user_id":self.id})
+    
+    @staticmethod
+    def verify_token(token):
+        serial = TimedSerializer(current_app.config["SECRET_KEY"])
+        try:
+            user_id = serial.loads(token)["user_id"]
+        except:
+            return None
+        return User.query.get(user_id)
 
 
 class Round(db.Model, UserMixin):
