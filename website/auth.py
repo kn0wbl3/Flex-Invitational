@@ -90,8 +90,8 @@ def send_mail(user):
     )
     msg.body = (
         f"Hi {user.first_name},\n\n"
-        "Click the following link to reset your password:"
-        "\nhttp://localhost:5000/change_password/{token}"
+        "Click the following link to reset your password:\n"
+        f"http://localhost:5000/change_password/{token}"
     )
     mail.send(msg)
     
@@ -100,8 +100,8 @@ def send_mail(user):
 def change_password(token):
     verified_user = User.verify_token(token)
     if not verified_user:
-        flash("Password link has expired, please try again", category="warning")
-        return redirect(url_for('reset_password'))
+        flash("Password link has expired, please try again", category="error")
+        return redirect(url_for('auth.reset_password'))
     if request.method == "POST":
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
@@ -113,6 +113,6 @@ def change_password(token):
             verified_user.password = generate_password_hash(password1, method='sha256')
             db.session.commit()
             flash('Password Succesfully Changed!', category='success')
-            return redirect(url_for('views.login'))
+            return redirect(url_for('auth.login'))
 
-    return render_template("change_password", user=current_user)
+    return render_template("change_password.html", user=current_user)

@@ -21,13 +21,13 @@ class User(db.Model, UserMixin):
 
     def generate_token(self):
         serial = TimedSerializer(current_app.config["SECRET_KEY"])
-        return serial.dumps({"user_id":self.id})
+        return serial.dumps(self.id)
     
     @staticmethod
     def verify_token(token):
         serial = TimedSerializer(current_app.config["SECRET_KEY"])
         try:
-            user_id = serial.loads(token)["user_id"]
+            user_id = serial.loads(token)
         except:
             return None
         return User.query.get(user_id)
