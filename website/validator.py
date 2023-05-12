@@ -1,6 +1,16 @@
 from flask import flash
 from datetime import datetime as dt
 from dateutil import relativedelta as rd
+from . import external
+
+def validate_ghin(ghin):
+    ghin_data = external.get_golfer_data_from_ghin(ghin)
+    if not ghin_data:
+        return False
+    if not ghin_data['golfers']:
+        return False
+    return True
+
 
 def validate_posted_score(data):
     """

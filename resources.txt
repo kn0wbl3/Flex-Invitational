@@ -14,3 +14,7 @@ How to reset password:
 Login Info
     andrew@gmail.com
     12345678
+Issues with GHIN logins:
+https://stackoverflow.com/questions/70985282/usga-website-api-and-json-quit-working-getting-error-invalid-token
+
+GHIN API: https://app.swaggerhub.com/apis-docs/GHIN/Admin/1.0#/Golfer%20APIs/get_golfers_search__format_
