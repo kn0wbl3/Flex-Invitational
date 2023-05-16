@@ -5,16 +5,14 @@ from . import external
 
 def validate_ghin(ghin):
     ghin_data = external.get_golfer_data_from_ghin(ghin)
-    if not ghin_data:
-        return False
-    if not ghin_data['golfers']:
+    if not ghin_data or ghin_data['golfers']:
         return False
     return True
 
 
-def validate_posted_score(data):
+def validate_posted_score_1(data):
     """
-    takes in the round posted by the user and validates the data
+    takes in the first part of a posted round and confirms if the data is valid
     """
     for field, val in data.items():
         if val == '':
@@ -27,28 +25,12 @@ def validate_posted_score(data):
             )
             return False
 
-        if field == "Front/Back":
+        if field == "front_or_back":
             if val.upper() not in {"FRONT", "BACK"}:
                 flash(f"{field} must be 'Front' or 'Back'!", category="error")
                 return False
 
-        if field == "Slope":
-            if int(val) < 55 or int(val) > 155:
-                flash(
-                    f"{field} seems to be incorrect, double check for 9-hole {field}",
-                    category="error"
-                )
-                return False
-        
-        if field == "Course Rating":
-            if int(val) > 45:
-                flash(
-                    f"{field} seems to be incorrect, double check for 9-hole {field}",
-                    category="error"
-                )
-                return False
-
-        if field == "Date":
+        if field == "date":
             date = dt.strptime(val, "%Y-%m-%d").date()
             if date < (dt.now().date() - rd.relativedelta(days=7)):
                 flash(
@@ -62,8 +44,12 @@ def validate_posted_score(data):
                     category="error"
                 )
                 return False
-        
-        if field == "Score":
+    return True
+
+
+def validate_posted_score_2(data):
+    pass
+    """if field == "Score":
             if not val.isdigit():
                 flash(
                     f"Your {field} needs to be a number!",
@@ -73,7 +59,5 @@ def validate_posted_score(data):
         
         if field == "Attestor":
             # need to check the attestors against the active User database
-            pass
-    return True
-        
+            pass"""
         

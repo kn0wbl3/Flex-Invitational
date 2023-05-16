@@ -42,7 +42,8 @@ class Round(db.Model, UserMixin):
     slope = db.Column(db.Float)
     course_rating = db.Column(db.Float)
     date_played = db.Column(db.Date())
-    score = db.Column(db.Integer)
+    gross_score = db.Column(db.Integer)
+    net_score = db.Column(db.Integer)
     attestor = db.Column(db.String(150))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

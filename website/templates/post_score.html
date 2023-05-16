@@ -1,7 +1,17 @@
-{% extends "base.html" %} {% block title %}Post a Score{% endblock %} {% block content
-    %}
+{% extends "base.html" %} {% block title %}Post a Score{% endblock %} {% block content%}
     <form method="POST">
-      <h3 align="center">Post a Score</h3>
+      <h3 align="center">Post a Score (Part 1)</h3>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          name="date"
+          placeholder="When did you play?"
+          default="today"
+        />
+      </div>
       <div class="form-group">
         <label for="course">Course</label>
         <input
@@ -13,74 +23,81 @@
         />
       </div>
       <div class="form-group">
-        <label for="tees">Tees</label>
-        <input
-          type="text"
-          class="form-control"
-          id="tees"
-          name="tees"
-          placeholder="Which color tees did you play?"
-        />
+        <label for="state">State</label>
+          <select class="form-control" id="state" name="state">
+            <option value="AK">Alaska</option>
+            <option value="AL">Alabama</option>
+            <option value="AR">Arkansas</option>
+            <option value="AZ">Arizona</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DC">District of Columbia</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="IA">Iowa</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MD">Maryland</option>
+            <option value="ME">Maine</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MO">Missouri</option>
+            <option value="MS">Mississippi</option>
+            <option value="MT">Montana</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="NE">Nebraska</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NV">Nevada</option>
+            <option value="NY">New York</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VA">Virginia</option>
+            <option value="VT">Vermont</option>
+            <option value="WA">Washington</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WV">West Virginia</option>
+            <option value="WY">Wyoming</option>
+          </select>
       </div>
       <div class="form-group">
         <label for="front_or_back">Front/Back</label>
         <select name="front_or_back" id="front_or_back" class="form-control">
-          <option value="front">Front</option>
-          <option value="back">Back</option>
+          <option value="front">Front 9</option>
+          <option value="back">Back 9</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="slope">Slope Rating (9-hole)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="slope"
-          name="slope"
-          placeholder="What is the slope rating?"
-        />
-      </div>
-      <div class="form-group">
-        <label for="course_rating">Course Rating (9-hole)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="course_rating"
-          name="course_rating"
-          placeholder="What is the course rating?"
-        />
-      </div>
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input
-          type="date"
-          class="form-control"
-          id="date"
-          name="date"
-          placeholder="When did you play?"
-        />
-      </div>
-      <div class="form-group">
-        <label for="score">Score</label>
-        <input
-          type="number"
-          class="form-control"
-          id="score"
-          name="score"
-          placeholder="What did you shoot?"
-        />
-      </div>
-      <div class="form-group">
-        <label for="attestor">Attestor</label>
-        <input
-          type="text"
-          class="form-control"
-          id="attestor"
-          name="attestor"
-          placeholder="Who attested this score?"
-        />
-      </div>
       <br />
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Continue</button>
     </form>
+    <script>
+      // Get the current date
+      var today = new Date();
+    
+      // Format the date as YYYY-MM-DD
+      var formattedDate = today.toISOString().substr(0, 10);
+    
+      // Set the default value of the date input field
+      document.getElementById('date').value = formattedDate;
+    </script>
     {% endblock %}
     

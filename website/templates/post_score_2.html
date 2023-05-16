@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Post a Score{% endblock %} {% block content%}
+    <form method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+        <h3 align="center">Post a Score (Part 2)</h3>
+          <div class="input-group mb-3">
+            <label for="tees" class="input-group-text">Choose your tees from the list: </label>
+                    <select id="tees">
+                      {% for tee in tees %}
+                        <option value="{{tee}}"> {{tee}} </option>
+                      {% endfor %}
+                    </select>
+          </div>
+      <div class="form-group">
+        <label for="score">Score</label>
+        <input
+          type="number"
+          class="form-control"
+          id="score"
+          name="score"
+          placeholder="What did you shoot?"
+        />
+      </div>
+      <div class="form-group">
+        <label for="attestor">Attestor</label>
+        <input
+          type="text"
+          class="form-control"
+          id="attestor"
+          name="attestor"
+          placeholder="Who attested this score?"
+        />
+      </div>
+      <br />
+      <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      
+    </form>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    {% endblock %}
+    
