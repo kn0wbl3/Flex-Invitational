@@ -14,9 +14,10 @@ class Note(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
+    ghin = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    notes = db.relationship('Note')
+    # notes = db.relationship('Note')
     rounds = db.relationship('Round')
 
     def generate_token(self):
@@ -41,7 +42,8 @@ class Round(db.Model, UserMixin):
     slope = db.Column(db.Float)
     course_rating = db.Column(db.Float)
     date_played = db.Column(db.Date())
-    score = db.Column(db.Integer)
+    gross_score = db.Column(db.Integer)
+    net_score = db.Column(db.Integer)
     attestor = db.Column(db.String(150))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

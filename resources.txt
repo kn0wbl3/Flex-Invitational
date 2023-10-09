@@ -1,4 +1,5 @@
 Cloned Code From:
+    https://www.youtube.com/watch?v=dam0GPOAvVI
     https://github.com/techwithtim/Flask-Web-App-Tutorial
 How To Calculate Handicaps:
     https://www.usga.org/content/usga/home-page/handicapping/roh/Content/rules/6%201%20Course%20Handicap%20Calculation.htm
@@ -12,5 +13,9 @@ How to reset password:
     https://stackoverflow.com/questions/23039734/flask-login-password-reset
     https://www.youtube.com/watch?v=vutyTx7IaAI
 Login Info
-    andrew@gmail.com
+    thisistempandrew+1@gmail.com
     12345678
+Issues with GHIN logins:
+https://stackoverflow.com/questions/70985282/usga-website-api-and-json-quit-working-getting-error-invalid-token
+
+GHIN API: https://app.swaggerhub.com/apis-docs/GHIN/Admin/1.0#/Golfer%20APIs/get_golfers_search__format_
