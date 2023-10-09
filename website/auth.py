@@ -4,6 +4,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db, create_mail, validator   ##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Message
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 auth = Blueprint('auth', __name__)
 
