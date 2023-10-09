@@ -13,8 +13,7 @@ BASE_URL = "https://api.ghin.com/api/v1"
 
 pp = pprint.PrettyPrinter(indent=4)
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-logger.addHandler(logging.StreamHandler(sys.stdout))
+
 
 def login_user():
     logger.debug("starting `login_user`")
@@ -72,7 +71,6 @@ def get_tee_ratings(course_id):
     url = f"{BASE_URL}/courses/{course_id}/tee_set_ratings.json"
 
     r = requests.get(url, headers=HEADERS)
-
     if r.status_code == 200:
         return r.json()
     return None

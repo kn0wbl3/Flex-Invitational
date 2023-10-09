@@ -4,7 +4,7 @@
         <h3 align="center">Post a Score (Part 2)</h3>
           <div class="input-group mb-3">
             <label for="tees" class="input-group-text">Choose your tees from the list: </label>
-                    <select id="tees">
+                    <select id="tees" name="tees">
                       {% for tee in tees %}
                         <option value="{{tee}}"> {{tee}} </option>
                       {% endfor %}
@@ -31,14 +31,8 @@
         />
       </div>
       <br />
-      <button class="btn btn-primary" onclick="goBack()">Go Back</button>
       <button type="submit" class="btn btn-primary">Submit</button>
       
     </form>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
     {% endblock %}
     
